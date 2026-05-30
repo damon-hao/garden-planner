@@ -14,10 +14,10 @@ Backyard Garden Planner is a local-first web app for planning vegetables and flo
 
 ## Technical Direction
 
-- Current implementation: dependency-free static HTML, CSS, and JavaScript.
+- Current implementation: React browser modules with local storage and a Vite-ready `package.json`.
 - Keep data in readable JavaScript objects until the app needs a backend or external plant API.
-- Avoid build tooling until the product shape is clearer.
-- If adding dependencies later, prefer a small Vite + React app with local storage first, then server/API integration only when needed.
+- Use the lightweight local server in `scripts/serve.mjs` when npm is unavailable.
+- Prefer local storage first, then server/API integration only when saved cloud sync or location services are needed.
 
 ## UX Guidance
 
@@ -47,4 +47,3 @@ Backyard Garden Planner is a local-first web app for planning vegetables and flo
 3. Add visual bed planner with drag/drop plant chips.
 4. Add reminder schedule export for watering, fertilizing, pruning, deadheading, and harvest windows.
 5. Add richer location handling using ZIP/city lookup and hardiness/frost data.
-

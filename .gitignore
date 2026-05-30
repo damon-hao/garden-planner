@@ -1,0 +1,5 @@
+node_modules/
+dist/
+.vite/
+.serve.*.log
+npm-debug.log*

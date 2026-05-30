@@ -46,6 +46,9 @@ A homeowner or renter who wants a practical backyard garden plan without researc
   - Weekly maintenance checklist
   - Helpful external resources
 - Graceful handling for unknown plant names with a generic research card.
+- Local saved plans.
+- Visual bed-zone planner.
+- Printable maintenance cards.
 
 ## Initial Plant Coverage
 

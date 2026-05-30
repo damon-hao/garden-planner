@@ -97,7 +97,7 @@ Users can print the current plan as care cards for offline reference while plant
 
 ## Current Architecture
 
-The current version is a dependency-free static prototype. It uses plain HTML, CSS, and JavaScript so it can run locally without a build step.
+The current version is a React module app that runs in the browser from local files served over HTTP. It is also Vite-ready once npm dependencies are installed.
 
 ```mermaid
 flowchart TD
@@ -128,9 +128,16 @@ flowchart TD
 garden-planner/
   AGENTS.md
   README.md
-  app.js
   index.html
+  package.json
   styles.css
+  scripts/
+    serve.mjs
+  src/
+    App.js
+    main.js
+    data/
+      plants.js
   docs/
     PROJECT_REQUIREMENTS.md
 ```
@@ -251,4 +258,21 @@ Once confirmed, development can continue from this baseline.
 
 ## Open Locally
 
-Open `index.html` in a browser.
+Run the local static server with the bundled or system Node runtime:
+
+```powershell
+node scripts/serve.mjs
+```
+
+Then open:
+
+```text
+http://127.0.0.1:5177
+```
+
+When npm is available, install dependencies and use the Vite workflow:
+
+```powershell
+npm install
+npm run dev
+```
