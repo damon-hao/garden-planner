@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Backyard Garden Planner</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="planner-panel" aria-labelledby="app-title">
+        <div class="intro">
+          <p class="eyebrow">Backyard Garden Planner</p>
+          <h1 id="app-title">Plan vegetables and flowers from a short plant list.</h1>
+          <p>
+            Enter your location and what you want to grow. The planner creates placement notes,
+            maintenance cards, and trusted resources for care after planting.
+          </p>
+        </div>
+
+        <form id="plannerForm" class="planner-form">
+          <label>
+            House location, city, region, or ZIP
+            <input id="locationInput" name="location" type="text" placeholder="Example: Austin, TX or 78704" required />
+          </label>
+
+          <label>
+            Vegetables, flowers, and herbs
+            <textarea id="plantInput" name="plants" rows="6" placeholder="Tomato, basil, marigold, cucumber, zinnia"></textarea>
+          </label>
+
+          <div class="control-grid">
+            <label>
+              Sunlight
+              <select id="sunInput" name="sun">
+                <option value="full-sun">Mostly full sun</option>
+                <option value="part-sun">Part sun</option>
+                <option value="mixed">Mixed yard conditions</option>
+                <option value="shade">Mostly shade</option>
+              </select>
+            </label>
+
+            <label>
+              Garden type
+              <select id="gardenTypeInput" name="gardenType">
+                <option value="raised-bed">Raised beds</option>
+                <option value="in-ground">In-ground beds</option>
+                <option value="containers">Containers</option>
+                <option value="mixed">Mixed setup</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="button-row">
+            <button type="submit">Generate garden plan</button>
+            <button type="button" id="savePlanButton" class="secondary-button" disabled>Save plan</button>
+            <button type="button" id="printPlanButton" class="secondary-button" disabled>Print cards</button>
+          </div>
+        </form>
+
+        <section class="saved-panel" aria-labelledby="saved-title">
+          <div class="section-heading">
+            <h2 id="saved-title">Saved Plans</h2>
+            <button type="button" id="clearPlansButton" class="text-button">Clear</button>
+          </div>
+          <div id="savedPlans" class="saved-list">
+            <p>No saved plans yet.</p>
+          </div>
+        </section>
+      </section>
+
+      <section class="results-panel" aria-live="polite">
+        <div id="summary" class="summary-card">
+          <h2>Garden Plan</h2>
+          <p>Use the form to generate a first-pass plan. You can revise the plant list as your backyard plan changes.</p>
+        </div>
+
+        <div id="cards" class="plant-grid"></div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
