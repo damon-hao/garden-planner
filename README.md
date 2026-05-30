@@ -258,7 +258,45 @@ Once confirmed, development can continue from this baseline.
 
 ## Open Locally
 
-Run the local static server with the bundled or system Node runtime:
+Install dependencies:
+
+```powershell
+cd "E:\Side Projects\garden-planner"
+npm install
+```
+
+If your current terminal does not recognize `npm`, close and reopen the terminal so the updated user PATH is loaded. For the current terminal only, this also works:
+
+```powershell
+$env:Path = "C:\Program Files\nodejs;" + $env:Path
+```
+
+Start the Vite dev server:
+
+```powershell
+npm run dev
+```
+
+Then open the local URL printed by Vite, usually:
+
+```text
+http://127.0.0.1:5173
+```
+
+If npm is still not available in your terminal PATH, use the direct npm path:
+
+```powershell
+$env:Path = "C:\Program Files\nodejs;" + $env:Path
+& "C:\Program Files\nodejs\npm.cmd" run dev
+```
+
+Or run the included helper:
+
+```powershell
+.\scripts\dev.ps1
+```
+
+The fallback local static server also works with the bundled or system Node runtime:
 
 ```powershell
 node scripts/serve.mjs
@@ -268,11 +306,4 @@ Then open:
 
 ```text
 http://127.0.0.1:5177
-```
-
-When npm is available, install dependencies and use the Vite workflow:
-
-```powershell
-npm install
-npm run dev
 ```

@@ -2,4 +2,5 @@ node_modules/
 dist/
 .vite/
 .serve.*.log
+.vite.*.log
 npm-debug.log*
