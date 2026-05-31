@@ -3,4 +3,5 @@ dist/
 .vite/
 .serve.*.log
 .vite.*.log
+.devcmd.*.log
 npm-debug.log*

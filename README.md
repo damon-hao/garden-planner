@@ -258,23 +258,13 @@ Once confirmed, development can continue from this baseline.
 
 ## Open Locally
 
-Install dependencies:
-
-```powershell
-cd "E:\Side Projects\garden-planner"
-npm install
-```
-
-If your current terminal does not recognize `npm`, close and reopen the terminal so the updated user PATH is loaded. For the current terminal only, this also works:
-
-```powershell
-$env:Path = "C:\Program Files\nodejs;" + $env:Path
-```
+PowerShell may block `npm.ps1` on some Windows systems. Use the command shim or the included helper instead of plain `npm` if you see an execution policy error.
 
 Start the Vite dev server:
 
 ```powershell
-npm run dev
+cd "E:\Side Projects\garden-planner"
+.\scripts\dev.cmd
 ```
 
 Then open the local URL printed by Vite, usually:
@@ -283,14 +273,27 @@ Then open the local URL printed by Vite, usually:
 http://127.0.0.1:5173
 ```
 
-If npm is still not available in your terminal PATH, use the direct npm path:
+You can also run npm through the `.cmd` shim directly:
 
 ```powershell
-$env:Path = "C:\Program Files\nodejs;" + $env:Path
 & "C:\Program Files\nodejs\npm.cmd" run dev
 ```
 
-Or run the included helper:
+If dependencies ever need to be reinstalled:
+
+```powershell
+& "C:\Program Files\nodejs\npm.cmd" install
+```
+
+Plain `npm run dev` also works after changing PowerShell execution policy or when your shell resolves `npm.cmd` instead of `npm.ps1`.
+
+For the current terminal only, this can help PowerShell find Node/npm:
+
+```powershell
+$env:Path = "C:\Program Files\nodejs;" + $env:Path
+```
+
+There is also a PowerShell helper, but it may be blocked by the same execution policy on stricter systems:
 
 ```powershell
 .\scripts\dev.ps1
